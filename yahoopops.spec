@@ -23,6 +23,41 @@ BuildRequires:	pkgconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
+YPOPs! is an application that provides POP3 access to Yahoo! Mail. It
+is available on the Windows, Linux, Solaris and Mac platforms.
+
+Yahoo! Mail disabled free access to its POP3 service on 24th April,
+2002. This application emulates a POP3 server and enables popular
+email clients like Outlook, Netscape, Eudora, Mozilla, etc., to
+download email from Yahoo! accounts. We do not go against the license
+agreements of Yahoo! Mail. This application is completely legitimate
+and well within the realms of legal software.
+
+How do we do it you ask? Well, this application is more like a
+gateway. It provides a POP3 server interface at one end to talk to
+email clients and an HTTP client (browser) interface at the other
+which allows it to talk to Yahoo!
+
+YPOPs! was inspired by a Perl script called FetchYahoo written by Ravi
+Ramkissoon.
+
+%description -l pl
+YPOPs! to aplikacja daj±ca dostêp POP3 do us³ugi Yahoo! Mail. Jest
+dostêpna na platformach Windows, Linux, Solaris i Mac.
+
+Yahoo! Mail wy³±czy³ swobodny dostêp do us³ugi POP3 24 kwietnia 2002.
+Ta aplikacja emuluje serwer POP3 i umo¿liwia popularnym klientom
+pocztowym, takim jak Outlook, Netscape, Eudora, Mozilla itp. ¶ci±ganie
+poczty z kont Yahoo!. Ten program nie jest sprzeczny z licencj± Yahoo!
+Mail, aplikacja jest w pe³ni legalna.
+
+Jak to dzia³a? Aplikacja dzia³a bardziej jako bramka. Dostarcza
+interfejs serwera POP3 z jednej strony w celu komunikacji z klientami
+pocztowymi oraz interfejs klienta HTTP ("przegl±darkê") z drugiej w
+celu komunikacji z Yahoo!.
+
+YPOPs! by³ zainspirowany skryptem Perla o nazwie FetchYahoo napisanym
+przez Ravi Ramkissoona.
 
 %prep
 %setup -q -n %{name} -a1
