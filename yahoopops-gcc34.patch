@@ -1,0 +1,114 @@
+--- yahoopops/src/StdString.h.orig	2004-06-15 08:30:16.000000000 +0200
++++ yahoopops/src/StdString.h	2004-10-16 09:01:24.726924880 +0200
+@@ -1605,9 +1605,9 @@
+ 	NotSpace(const std::locale& locArg=std::locale()) : loc(locArg) {}
+ 	bool operator() (CT t) const { return !std::isspace(t, loc); }
+ #else
+-	bool ssisp(char c) const { return FALSE != isspace((int) c); }
++	bool ssisp(char c) const { return false != isspace((int) c); }
+ //added by shyam on 05-08-03	
+-//	bool ssisp(wchar_t c) const { return FALSE != ::iswspace((wint_t) c); }
++//	bool ssisp(wchar_t c) const { return false != ::iswspace((wint_t) c); }
+ //end added by shyam on 05-08-03	
+ 	bool operator()(CT t) const  { return !ssisp(t); }
+ #endif
+@@ -2000,7 +2000,7 @@
+ 
+ 		// But practically speaking, this works faster
+ 
+-		if ( !empty() )
++		if ( !this->empty() )
+ 			ssupr(GetBuf(), this->size());
+ 
+ 		return *this;
+@@ -2019,7 +2019,7 @@
+ 
+ 		// But practically speaking, this works faster
+ 
+-		if ( !empty() )
++		if ( !this->empty() )
+ 			sslwr(GetBuf(), this->size());
+ 
+ 		return *this;
+@@ -2040,7 +2040,7 @@
+ 	// -------------------------------------------------------------------------
+ 	CT* GetBuf(int nMinLen=-1)
+ 	{
+-		if ( static_cast<int>(size()) < nMinLen )
++		if ( static_cast<int>(this->size()) < nMinLen )
+ 			this->resize(static_cast<MYSIZE>(nMinLen));
+ 
+ 		return this->empty() ? const_cast<CT*>(this->data()) : &(this->at(0));
+@@ -2088,7 +2088,7 @@
+ 	#ifdef _MFC_VER		// When in Rome...
+ 
+ 		CString strRes;
+-		bLoaded				= FALSE != strRes.LoadString(nId);
++		bLoaded				= false != strRes.LoadString(nId);
+ 		if ( bLoaded )
+ 			*this			= strRes;
+ 
+@@ -2925,7 +2925,7 @@
+ 
+ 	MYTYPE Mid(int nFirst ) const
+ 	{
+-		return Mid(nFirst, size()-nFirst);
++		return Mid(nFirst, this->size()-nFirst);
+ 	}
+ 
+ 	MYTYPE Mid(int nFirst, int nCount) const
+@@ -2938,14 +2938,14 @@
+ 		if ( nCount < 0 )
+ 			nCount = 0;
+ 
+-		if ( nFirst + nCount > size() )
+-			nCount = size() - nFirst;
++		if ( nFirst + nCount > this->size() )
++			nCount = this->size() - nFirst;
+ 
+-		if ( nFirst > size() )
++		if ( nFirst > this->size() )
+ 			return MYTYPE();
+ 
+ 		ASSERT(nFirst >= 0);
+-		ASSERT(nFirst + nCount <= size());
++		ASSERT(nFirst + nCount <= this->size());
+ 
+ 		return this->substr(static_cast<MYSIZE>(nFirst),
+ 							static_cast<MYSIZE>(nCount));
+@@ -3062,7 +3062,7 @@
+ 
+ 		void AnsiToOem()
+ 		{
+-			if ( sizeof(CT) == sizeof(char) && !empty() )
++			if ( sizeof(CT) == sizeof(char) && !this->empty() )
+ 			{
+ 				::CharToOem(reinterpret_cast<PCSTR>(this->c_str()),
+ 							reinterpret_cast<PSTR>(GetBuf()));
+@@ -3075,7 +3075,7 @@
+ 
+ 		void OemToAnsi()
+ 		{
+-			if ( sizeof(CT) == sizeof(char) && !empty() )
++			if ( sizeof(CT) == sizeof(char) && !this->empty() )
+ 			{
+ 				::OemToChar(reinterpret_cast<PCSTR>(this->c_str()),
+ 							reinterpret_cast<PSTR>(GetBuf()));
+@@ -3225,7 +3225,7 @@
+ 	// -------------------------------------------------------------------------
+ 	HRESULT StreamSave(IStream* pStream) const
+ 	{
+-		ASSERT(size()*sizeof(CT) < 0xffffffffUL - sizeof(SSSHDR));
++		ASSERT(this->size()*sizeof(CT) < 0xffffffffUL - sizeof(SSSHDR));
+ 		HRESULT hr		= E_FAIL;
+ 		ASSERT(pStream != 0);
+ 		SSSHDR hdr;
+@@ -3235,7 +3235,7 @@
+ 
+ 		if ( FAILED(hr=pStream->Write(&hdr, sizeof(SSSHDR), 0)) )
+ 			TRACE(_T("StreamSave: Cannot write control header, ERR=0x%X\n"),hr);
+-		else if ( empty() )
++		else if ( this->empty() )
+ 			;		// nothing to write
+ 		else if ( FAILED(hr=pStream->Write(this->c_str(), this->size()*sizeof(CT), 0)) )
+ 			TRACE(_T("StreamSave: Cannot write string to stream 0x%X\n"), hr);
