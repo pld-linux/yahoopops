@@ -8,7 +8,9 @@ Source0:	http://dl.sourceforge.net/sourceforge/yahoopops/yp6.tar.bz2
 # Source0-md5:	1b09ec7493db7589bb9f9428c2d48a12
 # Source0-size:	399620
 URL:		http://yahoopops.sourceforge.net/
-#BuildRequires:	-
+BuildRequires:	curl-devel
+BuildRequires:	libxml-devel
+BuildRequires:	openssl-devel
 #Requires:	-
 #Provides:	-
 #Obsoletes:	-
@@ -28,6 +30,17 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 #%%{__autoconf}
 #%%{__autoheader}
 #%%{__automake}
+
+export BIN_LOC=%{_bindir}
+export LIB_LOC=%{_libdir}
+export CONFIG_LOC=%{_sysconfdir}
+export CURL_INC="%{_includedir}/curl"
+export CURL_LIB="%(curl-config --libs)"
+export SSL_INC="%(pkg-config openssl --cflags)"
+export SSL_LIB="%(pkg-config openssl --libs)"
+export XML_INC="%(xml-config --cflags)"
+export XML_LIB="%(xml-config --libs)"
+
 %configure
 %{__make}
 
