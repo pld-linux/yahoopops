@@ -63,6 +63,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc docs/{credits.txt,history.txt} mimepp-%{_mimepp_ver}/mimepp-license.txt
+%doc README docs/{credits.txt,history.txt} mimepp-%{_mimepp_ver}/mimepp-license.txt
 %attr(755,root,root) %{_bindir}/ypops
 %{_sysconfdir}/ypopsrc
