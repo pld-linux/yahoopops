@@ -3,7 +3,7 @@ Summary(pl):	YPOPs! - emulacja serwera pocztowego POP3/SMTP i swobodny dostêp do
 Name:		yahoopops
 Version:	0.6
 Release:	0.1
-License:	GPL v2
+License:	GPL v2+ (yp6) + Hunny Software license (?).
 Group:		Networking/Daemons
 Source0:	http://dl.sourceforge.net/yahoopops/yp6.tar.bz2
 # Source0-md5:	1b09ec7493db7589bb9f9428c2d48a12
@@ -22,7 +22,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 
 %prep
-%setup -q -n %{name}
+%setup -q -n %{name} -a1
 
 %build
 export BIN_LOC=%{_bindir}
@@ -34,8 +34,9 @@ export SSL_INC="%(pkg-config openssl --cflags)"
 export SSL_LIB="%(pkg-config openssl --libs)"
 export XML_INC="%(xml-config --cflags)"
 export XML_LIB="%(xml-config --libs)"
+export MIMEPP="$PWD/examples/email"
 
-%configure
+cd src
 %{__make}
 
 %install
