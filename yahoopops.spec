@@ -3,7 +3,7 @@ Summary(pl):	YPOPs! - emulacja serwera pocztowego POP3/SMTP i swobodny dostêp do
 Name:		yahoopops
 Version:	0.6
 Release:	0.1
-License:	GPL v2+ (yp6) + Hunny Software License (?).
+License:	GPL v2+ (yp6) / MIME++ Software License Agreement
 Group:		Networking/Daemons
 Source0:	http://dl.sourceforge.net/yahoopops/yp6.tar.bz2
 # Source0-md5:	1b09ec7493db7589bb9f9428c2d48a12
@@ -51,14 +51,18 @@ cd src
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT
+install -D src/ypops \
+	$RPM_BUILD_ROOT%{_bindir}/ypops
+install -D src/ypops_samplerc \
+	$RPM_BUILD_ROOT%{_sysconfdir}/ypopsrc
+
+mv mimepp-%{_mimepp_ver}/{License.txt,mimepp-license.txt}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-#doc AUTHORS CREDITS ChangeLog NEWS README THANKS TODO
-#attr(755,root,root) %{_bindir}/*
-#{_datadir}/%{name}
+%doc docs/{credits.txt,history.txt} mimepp-%{_mimepp_ver}/mimepp-license.txt
+%attr(755,root,root) %{_bindir}/ypops
+%{_sysconfdir}/ypopsrc
