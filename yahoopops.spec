@@ -8,6 +8,10 @@ Group:		Networking/Daemons
 Source0:	http://dl.sourceforge.net/yahoopops/yp6.tar.bz2
 # Source0-md5:	1b09ec7493db7589bb9f9428c2d48a12
 # Source0-size:	399620
+# ftp://ftp.library.tver.ru/pub/unix/libs/mimepp-1.3.3.tar.gz
+Source1:	mimepp-1.3.3.tar.gz
+# Source1-md5:	e963dadb38e4dbc9f49368696aad11ca
+# Source1-size:	353943
 URL:		http://yahoopops.sourceforge.net/
 BuildRequires:	curl-devel
 BuildRequires:	libxml-devel
