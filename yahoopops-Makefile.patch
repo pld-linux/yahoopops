@@ -43,7 +43,7 @@
 -
 -
 -# replace -O with -g in order to debug
-+LIBS= ../lib/re_lib/libre_lib.a $(MIMEPP)/rel/libmimepp_core.a $(MIMEPP)/rel/libmimepp_util.a $(MIMEPP)/rel/libmimepp_net.a $(XML_LIB) $(CURL_LIB) $(SSL_LIB)
++LIBS= ../lib/re_lib/libre_lib.a $(MIMEPP)/rel/libmimepp_core.a $(MIMEPP)/rel/libmimepp_util.a $(MIMEPP)/rel/libmimepp_net.a $(XML_LIB) $(CURL_LIB) $(SSL_LIB) -lpthread
  
  DEFINES= $(INCLUDES) $(DEFS)
 -CFLAGS= -O $(DEFINES)
