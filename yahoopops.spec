@@ -3,19 +3,22 @@ Summary(pl):	YPOPs! - emulacja serwera pocztowego POP3/SMTP i swobodny dostêp do
 Name:		yahoopops
 Version:	0.6
 Release:	0.1
-License:	GPL v2+ (yp6) + Hunny Software license (?).
+License:	GPL v2+ (yp6) + Hunny Software License (?).
 Group:		Networking/Daemons
 Source0:	http://dl.sourceforge.net/yahoopops/yp6.tar.bz2
 # Source0-md5:	1b09ec7493db7589bb9f9428c2d48a12
 # Source0-size:	399620
 # ftp://ftp.library.tver.ru/pub/unix/libs/mimepp-1.3.3.tar.gz
-Source1:	mimepp-1.3.3.tar.gz
+%define		_mimepp_ver	1.3.3
+Source1:	mimepp-%{_mimepp_ver}.tar.gz
 # Source1-md5:	e963dadb38e4dbc9f49368696aad11ca
 # Source1-size:	353943
+Patch0:		%{name}-Makefile.patch
+Patch1:		%{name}-gcc34.patch
 URL:		http://yahoopops.sourceforge.net/
-BuildRequires:	curl-devel
+BuildRequires:	curl-devel >= 7.11.2
 BuildRequires:	libxml-devel
-BuildRequires:	openssl-devel
+BuildRequires:	openssl-devel >= 0.9.7d
 BuildRequires:	pkgconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -23,6 +26,8 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %prep
 %setup -q -n %{name} -a1
+%patch0 -p1
+%patch1 -p1
 
 %build
 export BIN_LOC=%{_bindir}
@@ -34,7 +39,11 @@ export SSL_INC="%(pkg-config openssl --cflags)"
 export SSL_LIB="%(pkg-config openssl --libs)"
 export XML_INC="%(xml-config --cflags)"
 export XML_LIB="%(xml-config --libs)"
-export MIMEPP="$PWD/examples/email"
+export MIMEPP="$PWD/mimepp-%{_mimepp_ver}"
+
+export CFLAGS="%{rpmcflags}"
+export CXXFLAGS="%{rpmcflags}"
+export LDFLAGS="%{rpmldflags}"
 
 cd src
 %{__make}
