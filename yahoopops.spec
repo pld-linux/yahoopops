@@ -98,4 +98,4 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc README docs/{credits.txt,history.txt} mimepp-%{_mimepp_ver}/mimepp-license.txt
 %attr(755,root,root) %{_bindir}/ypops
-%config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/ypopsrc
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/ypopsrc
