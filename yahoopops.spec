@@ -1,5 +1,5 @@
 Summary:	YPOPs! - Emulates a POP3/SMTP mail server and provides free access to Yahoo! Mail
-Summary(pl.UTF-8):   YPOPs! - emulacja serwera pocztowego POP3/SMTP i swobodny dostęp do Yahoo! Mail
+Summary(pl.UTF-8):	YPOPs! - emulacja serwera pocztowego POP3/SMTP i swobodny dostęp do Yahoo! Mail
 Name:		yahoopops
 Version:	0.6
 Release:	0.3
