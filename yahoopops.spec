@@ -1,5 +1,5 @@
 Summary:	YPOPs! - Emulates a POP3/SMTP mail server and provides free access to Yahoo! Mail
-Summary(pl):	YPOPs! - emulacja serwera pocztowego POP3/SMTP i swobodny dostêp do Yahoo! Mail
+Summary(pl.UTF-8):   YPOPs! - emulacja serwera pocztowego POP3/SMTP i swobodny dostÄ™p do Yahoo! Mail
 Name:		yahoopops
 Version:	0.6
 Release:	0.3
@@ -39,22 +39,22 @@ which allows it to talk to Yahoo!
 YPOPs! was inspired by a Perl script called FetchYahoo written by Ravi
 Ramkissoon.
 
-%description -l pl
-YPOPs! to aplikacja daj±ca dostêp POP3 do us³ugi Yahoo! Mail. Jest
-dostêpna na platformach Windows, Linux, Solaris i Mac.
+%description -l pl.UTF-8
+YPOPs! to aplikacja dajÄ…ca dostÄ™p POP3 do usÅ‚ugi Yahoo! Mail. Jest
+dostÄ™pna na platformach Windows, Linux, Solaris i Mac.
 
-Yahoo! Mail wy³±czy³ swobodny dostêp do us³ugi POP3 24 kwietnia 2002.
-Ta aplikacja emuluje serwer POP3 i umo¿liwia popularnym klientom
-pocztowym, takim jak Outlook, Netscape, Eudora, Mozilla itp. ¶ci±ganie
-poczty z kont Yahoo!. Ten program nie jest sprzeczny z licencj± Yahoo!
-Mail, aplikacja jest w pe³ni legalna.
+Yahoo! Mail wyÅ‚Ä…czyÅ‚ swobodny dostÄ™p do usÅ‚ugi POP3 24 kwietnia 2002.
+Ta aplikacja emuluje serwer POP3 i umoÅ¼liwia popularnym klientom
+pocztowym, takim jak Outlook, Netscape, Eudora, Mozilla itp. Å›ciÄ…ganie
+poczty z kont Yahoo!. Ten program nie jest sprzeczny z licencjÄ… Yahoo!
+Mail, aplikacja jest w peÅ‚ni legalna.
 
-Jak to dzia³a? Aplikacja dzia³a bardziej jako bramka. Dostarcza
+Jak to dziaÅ‚a? Aplikacja dziaÅ‚a bardziej jako bramka. Dostarcza
 interfejs serwera POP3 z jednej strony w celu komunikacji z klientami
-pocztowymi oraz interfejs klienta HTTP ("przegl±darkê") z drugiej w
+pocztowymi oraz interfejs klienta HTTP ("przeglÄ…darkÄ™") z drugiej w
 celu komunikacji z Yahoo!.
 
-YPOPs! by³ zainspirowany skryptem Perla o nazwie FetchYahoo napisanym
+YPOPs! byÅ‚ zainspirowany skryptem Perla o nazwie FetchYahoo napisanym
 przez Ravi Ramkissoona.
 
 %prep
